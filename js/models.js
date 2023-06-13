@@ -246,3 +246,4 @@ class User {
     return this.favorites.some(s => (s.storyId === story.storyId));
   }
 }
+
