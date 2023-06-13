@@ -6,7 +6,7 @@
 
 /** Show main list of all stories when click site name */
 
-function navAllStories(evt) {
+function navAllStories(){
   console.debug("navAllStories", evt);
   hidePageComponents();
   putStoriesOnPage();
@@ -14,10 +14,9 @@ function navAllStories(evt) {
 
 $body.on("click", "#nav-all", navAllStories);
 
-/** Show story submit form on clicking story "submit" */
+//  Show story submit form on clicking on submit
 
-function navSubmitStoryClick(evt) {
-  console.debug("navSubmitStoryClick", evt);
+function navSubmitonClick() {
   hidePageComponents();
   $allStoriesList.show();
   $submitForm.show();
@@ -27,18 +26,18 @@ $navSubmitStory.on("click", navSubmitStoryClick);
 
 /** Show favorite stories on click on "favorites" */
 
-function navFavoritesClick(evt) {
-  console.debug("navFavoritesClick", evt);
+function navFavoritesClick() {
   hidePageComponents();
   putFavoritesListOnPage();
+   $userProfile.show();
 }
 
 $body.on("click", "#nav-favorites", navFavoritesClick);
 
 /** Show My Stories on clicking "my stories" */
 
-function navMyStories(evt) {
-  console.debug("navMyStories", evt);
+function navMyStories(){
+
   hidePageComponents();
   putUserStoriesOnPage();
   $ownStories.show();
@@ -48,8 +47,8 @@ $body.on("click", "#nav-my-stories", navMyStories);
 
 /** Show login/signup on click on "login" */
 
-function navLoginClick(evt) {
-  console.debug("navLoginClick", evt);
+function navLoginClick() {
+
   hidePageComponents();
   $loginForm.show();
   $signupForm.show();
@@ -58,10 +57,10 @@ function navLoginClick(evt) {
 
 $navLogin.on("click", navLoginClick);
 
-/** Hide everything but profile on click on "profile" */
+//  Hide everything but profile on click on "profile" 
 
 function navProfileClick(evt) {
-  console.debug("nav\\\\\\ProfileClick", evt);
+  console.debug("navProfileClick", evt);
   hidePageComponents();
   $userProfile.show();
 }
@@ -77,4 +76,5 @@ function updateNavOnLogin() {
   $navLogOut.show();
   $navUserProfile.text(`${currentUser.username}`).show();
 }
+
 
