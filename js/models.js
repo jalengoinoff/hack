@@ -25,7 +25,7 @@ class Story {
 
   getHostName() {
     // UNIMPLEMENTED: complete this function!
-    return "hostname.com";
+    return new URL(this.url).host;
   }
 }
 
@@ -158,6 +158,8 @@ class User {
     );
   }
 
+
+
   /** Login in user with API, make User instance & return it.
 
    * - username: an existing user's username
@@ -231,6 +233,13 @@ class User {
     this.favorites.push(story);
     await this._addOrRemoveFavorite("add", story)
   }
+
+
+  async removeFavorite(story) {
+    this.favorites = this.favorites.filter(s => s.storyId !== story.storyId);
+    await this._addOrRemoveFavorite("remove", story);
+  }
+
   async _addOrRemoveFavorite(newState, story) {
     const method = newState === "add" ? "POST" : "DELETE";
     const token = this.loginToken;
@@ -246,4 +255,5 @@ class User {
     return this.favorites.some(s => (s.storyId === story.storyId));
   }
 }
+
 
